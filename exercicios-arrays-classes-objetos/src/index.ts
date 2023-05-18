@@ -1,5 +1,6 @@
-// import { Pessoa } from "./atividade-3/pessoa";
-import { Pessoa } from "./atividade-3/pessoa";
+import { lista1 } from "./atividade-1/lista1";
+import { lista2 } from "./atividade-2/lista2";
+import { Pessoa, OtaPessoa } from "./atividade-3/pessoa";
 import { PessoaComSalario } from "./atividade-5/pessoa";
 import * as Atividade4 from "./atividade-4/pessoa";
 import { Aluno } from "./atividade-6/aluno";
@@ -7,29 +8,39 @@ import { gabarito, responseGeneration } from "./atividade-6/prova";
 import { table } from "console";
 
 
-// const pessoa = new OtaPessoa('Bryan', 22);
-// console.log(pessoa.nome);
+const atividade1 = () => {
+    const lista: lista1["num"] =  [8, 72, 1, 37, 21, 54, 7, 81, 23, 92, 12, 87, 3, 12, 6, 4];
 
-// pessoa.nome = 'Felipe';
+    const listaFiltrada = lista.filter((num) => num % 2 !== 0);
 
-// console.log(pessoa.nome);
+    console.log(listaFiltrada);
+}
+
+atividade1();
+
+const atividade2 = () => {
+    const lista: lista2["num"] = [8, 72, 1, 37, 21, 54, 7, 81, 23, 92, 12, 87, 3, 12, 6, 4];
+
+    const somaLista = lista.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    console.log(`Soma dos números da lista: ${somaLista}.`);
+}
+
+atividade2();
+
+const pessoa = new OtaPessoa('Bryan', 22);
+console.log(pessoa.nome);
+
+pessoa.nome = 'Felipe';
+
+console.log(pessoa.nome);
 
 
 const atividade3 = () => {
-  // 17, 36, 28, 42, 78
 
-  // const pessoa1 = new Pessoa('Ota Pessoa 1', 17);
-  // const pessoa2 = new Pessoa('Ota Pessoa 2', 36);
-  // const pessoa3 = new Pessoa('Ota Pessoa 3', 28);
-  // const pessoa4 = new Pessoa('Ota Pessoa 4', 42);
-  // const pessoa5 = new Pessoa('Ota Pessoa 5', 78);
-
+  
   const listaDePessoas: /** Array<Pessoa> */ Pessoa[] = [
-    // pessoa1
-    // pessoa2
-    // pessoa3
-    // pessoa4
-    // pessoa5
+    
     new Pessoa('Ota Pessoa 1', 17),
     new Pessoa('Ota Pessoa 6', 12),
     new Pessoa('Ota Pessoa 7', 19),
@@ -66,15 +77,11 @@ const atividade4 = () => {
   console.log(media);
 }
 
-// atividade3();
-// atividade4();
+atividade3();
+atividade4();
 
 
-/**
- * Utilizando a classe Pessoa da atividade 3, adicione mais um atributo chamado salario
- *  (number), faça receber esse valor pelo construtor. Depois filtre todas as pessoas que 
- * possuem o salário menor que R$1027,00 e crie uma nova lista somente com o nome e a idade da pessoa.
- */
+
 const atividade5 = () => {
   const listaDePessoas: /** Array<Pessoa> */ PessoaComSalario[] = [
     new PessoaComSalario('Ota Pessoa 1', 17, 701),
@@ -98,10 +105,10 @@ const atividade5 = () => {
 
 }
 
-// atividade5();
+atividade5();
 
 const atividade6 = () => {
-  // console.time('Label');
+  console.time('Label');
 
   const listaAlunos = [
     new Aluno("aluno1", 20),
@@ -113,21 +120,21 @@ const atividade6 = () => {
     new Aluno("aluno7", 20),
   ]
 
-  // listaAlunos.map((aluno) => {
-  //   let nota = 0;
+  listaAlunos.map((aluno) => {
+    let nota = 0;
 
-  //   const respostas = responseGeneration();
+    const respostas = responseGeneration();
 
-  //   for (let i = 0; i < 10; i++) {
-  //     if (respostas[i] === gabarito[i]) {
-  //       nota++;
-  //     }
-  //   }
+    for (let i = 0; i < 10; i++) {
+      if (respostas[i] === gabarito[i]) {
+        nota++;
+      }
+    }
 
-  //   aluno.addNota(nota);
+    aluno.addNota(nota);
 
-  //   return aluno;
-  // });
+    return aluno;
+  });
 
 
   for (let aluno of listaAlunos) {
@@ -156,7 +163,7 @@ const atividade6 = () => {
   console.log(`Melhor aluno ${melhorAluno.getNome} ${melhorAluno.getNota.toFixed(2)}`);
   console.log(`Pior aluno ${piorAluno.getNome} ${piorAluno.getNota.toFixed(2)}`);
   console.log(`Média de notas: ${mediaDeNotas}`);
-  // console.timeEnd('Label');
+  console.timeEnd('Label');
 }
 
 atividade6();
