@@ -1,0 +1,26 @@
+No terminal do vscode executar os seguintes comandos:
+
+npm init -y
+npm i -D typescript @types/node ts-node-dev
+npx tsc --init
+
+
+No tsconfig:
+
+alterar a linha 14 para "es2022"
+alterar a linha 29 para "./src"
+alterar a linha 58 para "./build"
+alterar a linha 90 para false
+acrescentar ao final, antes da última chave, os seguintes comandos:
+ "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
+
+
+  No package.json:
+
+  acrescentar, a partir da linha 6, as seguintes linhas:
+   "scripts": {
+        "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+        "build": "tsc",
+        "start": "node ./build/index.js"
+    },
